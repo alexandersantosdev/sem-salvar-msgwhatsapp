@@ -1,1 +1,0 @@
-# Chame um número para conversa no whatsapp sem precisar salvar o contato
