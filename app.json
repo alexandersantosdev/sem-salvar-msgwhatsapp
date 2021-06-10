@@ -20,10 +20,13 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "br.gov.pr.piraquara.educacao",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       }
+        
+     
     },
     "web": {
       "favicon": "./assets/favicon.png"

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Linking} from 'react-native';
+import {Linking, Keyboard, TouchableWithoutFeedback} from 'react-native';
 import { StyleSheet, TouchableOpacity,Text, TextInput, View, Image  } from 'react-native';
 
 export default function App() {
@@ -8,14 +8,16 @@ export default function App() {
 
 
   const handleGeraConversa = () => {
-    if (numero != '' && numero != null)
-      Linking.openURL(`https://api.whatsapp.com/send?phone=55${numero}`)
+    if (numero != '' && numero != null && numero.length >= 10)
+      Linking.openURL(`https://api.whatsapp.com/send?phone=55${numero}`);
     else
-      alert(`Número inválido`)
+      alert(`Número inválido`);
   }
 
   return (
     <View style={styles.container}>
+      <TouchableWithoutFeedback onPress={()=>Keyboard.dismiss()}>
+
         <Image 
         source={require('./WhatsApp.png')}
         style={styles.logo}
@@ -25,8 +27,12 @@ export default function App() {
       placeholder="ex: 41999999999"
       />
       <TouchableOpacity style={styles.button} onPress={handleGeraConversa}>
-        <Text style={styles.buttonText}>Iniciar conversa</Text>
+        <Text style={[styles.buttonText, {marginBottom: 20}]}>Iniciar conversa</Text>
       </TouchableOpacity>
+      <TouchableOpacity style={[styles.button, {backgroundColor: "#F39C12"}]} onPress={()=>setnumero('')}>
+        <Text style={styles.buttonText}>Limpar</Text>
+      </TouchableOpacity>
+</TouchableWithoutFeedback>
     </View>
   );
 }
