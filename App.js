@@ -24,7 +24,7 @@ export default function App() {
         />
       <Text style={styles.title}>Inicie uma conversa no whatsapp sem precisar salvar o número</Text>
       <TextInput style={styles.input} value={numero} onChangeText={(text) => setnumero(text)}
-      placeholder="ex: 41999999999"
+      placeholder="ex: 41999999999" keyboardType="phone-pad"
       />
       <TouchableOpacity style={styles.button} onPress={handleGeraConversa}>
         <Text style={[styles.buttonText, {marginBottom: 20}]}>Iniciar conversa</Text>
